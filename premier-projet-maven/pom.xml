@@ -12,11 +12,12 @@
 	<url>http://maven.apache.org</url>
 
 	<properties>
-		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<maven.compiler.source>1.8</maven.compiler.source>
 		<maven.compiler.target>1.8</maven.compiler.target>
 		<junit.version>3.8.1</junit.version>
+		
 
 	</properties>
 
@@ -41,6 +42,13 @@
 
 	<build>
 		<finalName>${project.artifactId}</finalName>
+		<resources>
+			<resource>
+				<directory>src/main/resources</directory>
+				<filtering>true</filtering>
+
+			</resource>
+		</resources>
 
 		<plugins>
 
@@ -50,7 +58,7 @@
 				<artifactId>maven-jar-plugin</artifactId>
 
 			</plugin>
-			
+
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-shade-plugin</artifactId>
@@ -77,9 +85,28 @@
 					</archive>
 				</configuration>
 			</plugin>
-			
+
 		</plugins>
 
 	</build>
+
+	<profiles>
+		<profile>
+			<id>dev</id>
+			<activation>
+				<activeByDefault>true</activeByDefault>
+			</activation>
+			<properties>
+				<mode>DEV</mode>
+			</properties>
+		</profile>
+		<profile>
+			<id>prod</id>
+			<properties>
+				<mode>PROD</mode>
+			</properties>
+		</profile>
+
+	</profiles>
 
 </project>
