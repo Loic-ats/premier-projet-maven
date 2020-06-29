@@ -20,6 +20,13 @@
   </properties>
 
   <dependencies>
+  
+      <dependency>
+    <groupId>com.github.lalyos</groupId>
+    <artifactId>jfiglet</artifactId>
+    <version>0.0.3</version>
+</dependency>
+  
     <dependency>
       <groupId>junit</groupId>
       <artifactId>junit</artifactId>
@@ -27,6 +34,10 @@
 	
       <scope>test</scope>
     </dependency>
+    
+
+    
+    
   </dependencies>
 
 <build>
